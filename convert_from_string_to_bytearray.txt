@@ -1,0 +1,77 @@
+>>> m1 = "Hey there!"
+>>> m1
+'Hey there!'
+>>> 
+>>> m1.encode('utf-8')
+b'Hey there!'
+>>> m1_e = m1.encode('utf-8')
+>>> m1_e[0]
+72
+>>> m1_e[1]
+101
+>>> 
+>>> 
+>>> for i in m1_e:
+	chr(i)
+
+	
+'H'
+'e'
+'y'
+' '
+'t'
+'h'
+'e'
+'r'
+'e'
+'!'
+>>> int(m1_e)
+Traceback (most recent call last):
+  File "<pyshell#12>", line 1, in <module>
+    int(m1_e)
+ValueError: invalid literal for int() with base 10: b'Hey there!'
+>>> int.from_bytes(m1_e)
+Traceback (most recent call last):
+  File "<pyshell#13>", line 1, in <module>
+    int.from_bytes(m1_e)
+TypeError: from_bytes() missing required argument 'byteorder' (pos 2)
+>>> int.from_bytes(m1_e, byteorder='big')
+341882236022128691537185
+
+>>> m1_int = int.from_bytes(m1_e, byteorder='big')
+>>> hex(m1_int)
+'0x48657920746865726521'
+>>> bytearray.fromhex(hex(m1_int)[2::])
+bytearray(b'Hey there!')
+>>> m1_bytearray.fromhex(hex(m1_int)[2::])
+KeyboardInterrupt
+>>> m1_hex = hex(m1_int)
+>>> 
+>>> bytearray.fromhex(m1_hex[2::]).deocde()
+Traceback (most recent call last):
+  File "<pyshell#20>", line 1, in <module>
+    bytearray.fromhex(m1_hex[2::]).deocde()
+AttributeError: 'bytearray' object has no attribute 'deocde'
+>>> bytearray.fromhex(m1_hex[2::]).deocde('utf-8')
+Traceback (most recent call last):
+  File "<pyshell#21>", line 1, in <module>
+    bytearray.fromhex(m1_hex[2::]).deocde('utf-8')
+AttributeError: 'bytearray' object has no attribute 'deocde'
+>>> bytearray.fromhex(m1_hex[2::])
+bytearray(b'Hey there!')
+>>> m1_hex_2_byte = bytearray.fromhex(m1_hex[2::])
+>>> for i in m1_hex_2_byte:
+	chr(i)
+
+	
+'H'
+'e'
+'y'
+' '
+'t'
+'h'
+'e'
+'r'
+'e'
+'!'
+>>> 

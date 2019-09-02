@@ -1,0 +1,11 @@
+ping = yes
+ip = 8.8.8.8
+interface = ppp0
+pkt_size = [64, 348, 1024, 1400]
+BBBB a notehr line to the file - by CCCC script
+BBBB a notehr line to the file - by CCCC script
+BBBB a notehr line to the file - by CCCC script
+BBBB a notehr line to the file - by CCCC script
+BBBB a notehr line to the file - by CCCC script
+BBBB a notehr line to the file - by CCCC script
+BBBB a notehr line to the file - by CCCC script
